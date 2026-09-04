@@ -1619,6 +1619,19 @@
   window.addEventListener('hashchange', routeFromHash);
   routeFromHash();
 
+  // ---- 메뉴 클릭 시 새로고침(GitHub Pages는 커밋되면 바로 최신 파일이 반영되므로,
+  // 탭을 계속 열어두고 있어도 메뉴를 누르면 항상 최신 내용을 다시 받아온다) ----
+  var menuLinks = Array.prototype.slice.call(document.querySelectorAll('nav.jump a, a.brand'));
+  menuLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href') || '';
+      if (href.charAt(0) !== '#') return;
+      e.preventDefault();
+      location.hash = href;
+      location.reload();
+    });
+  });
+
   // ---- accordion(설명/공지) 기본 펼침 상태: PC는 펼침, 모바일은 접힘 ----
   var isMobile = window.matchMedia('(max-width: 640px)').matches;
   Array.prototype.slice.call(document.querySelectorAll('details.acc')).forEach(function (d) {

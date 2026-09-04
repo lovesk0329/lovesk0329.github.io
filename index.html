@@ -1650,7 +1650,7 @@
       if (href.charAt(0) !== '#') return;
       e.preventDefault();
       location.hash = href;
-      location.reload();
+      location.replace(location.pathname + '?_=' + Date.now() + location.hash);
     });
   });
 

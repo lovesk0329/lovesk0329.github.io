@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>자판연습 · 복지나침반</title>
 <style>
+#lb-settings [role=option] .o-k{font-family:'Noto Sans KR',sans-serif;font-size:1rem;font-weight:700;color:var(--accent)}
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&family=Gaegu:wght@400;700&display=swap');
 :root{
   --bg:#faf7f1;--surface:#fff;--surface-alt:#f1ead9;--line:#e2d9c4;--text:#1b1b18;--text-muted:#5b5647;
@@ -103,7 +104,7 @@ th{color:var(--text-muted);font-weight:600}
     <h1 class="pg" tabindex="-1">자판연습</h1>
     <p class="sub">처음 오셨네요. 음성 안내 방식을 골라 주세요.</p>
     <ul role="listbox" id="lb-intro" aria-label="음성 안내 방식">
-      <li role="option" data-act="nvda" data-say="NVDA 같은 화면낭독기로 쓰기"><span><span class="o-t">화면낭독기(NVDA)로 쓰기</span><span class="o-d">메뉴는 NVDA가 읽고, 연습 문장은 이 페이지가 읽어요.</span></span><span class="o-k">Enter</span></li>
+      <li role="option" data-act="nvda" data-say="NVDA 같은 화면낭독기로 쓰기"><span><span class="o-t">화면낭독기(NVDA·톡백)로 쓰기</span><span class="o-d">메뉴는 화면낭독기가 읽고, 연습 문장은 이 페이지가 읽어요.</span></span><span class="o-k">Enter</span></li>
       <li role="option" data-act="self" data-say="화면낭독기 없이 쓰기. 페이지가 모두 읽어 줘요"><span><span class="o-t">화면낭독기 없이 쓰기</span><span class="o-d">메뉴까지 모두 이 페이지가 읽어 줘요.</span></span><span class="o-k">Space</span></li>
     </ul>
     <p class="muted">아무 키나 누르면 음성 안내가 나와요. 나중에 설정에서 바꿀 수 있어요.</p>
@@ -137,7 +138,7 @@ th{color:var(--text-muted);font-weight:600}
       </div>
     </fieldset>
     <div class="btns"><button class="p" id="btn-start">시작하기</button><button id="btn-start-over">처음부터 시작</button><button data-back>뒤로</button></div>
-    <div class="keys"><span><kbd>←</kbd><kbd>→</kbd> 주제 바꾸기</span><span><kbd>↑</kbd><kbd>↓</kbd> 이야기 고르기</span><span><kbd>Enter</kbd> 시작</span><span><kbd>Tab</kbd> 분량 바꾸기</span><span><kbd>Esc</kbd> 뒤로</span></div>
+    <div class="keys"><span><kbd>←</kbd><kbd>→</kbd> 주제 바꾸기</span><span><kbd>↑</kbd><kbd>↓</kbd> 이야기 고르기</span><span><kbd>Enter</kbd> 시작</span><span><kbd>Tab</kbd> 분량 바꾸기</span><span><kbd>Esc</kbd>·<kbd>~</kbd> 뒤로</span></div>
   </section>
 
   <!-- 따라쓰기 -->
@@ -147,7 +148,7 @@ th{color:var(--text-muted);font-weight:600}
     <div class="target" id="p-target" aria-hidden="true"></div>
     <input class="typing" id="p-input" type="text" autocomplete="off" autocorrect="off" spellcheck="false" lang="ko" aria-label="따라 쓰기">
     <div class="fb" id="p-fb" aria-hidden="true"></div>
-    <div class="keys"><span><kbd>Space</kbd> 낱말 확인</span><span><kbd>Enter</kbd> 문장 끝</span><span><kbd>F2</kbd> 지금 부분 다시 듣기</span><span><kbd>Shift</kbd>+<kbd>F2</kbd> 문장 전체</span><span><kbd>F3</kbd> 받아쓰기식 (띄어쓰기·부호)</span><span><kbd>F4</kbd> 지금 낱말 글자 하나씩</span><span><kbd>Esc</kbd> 잠깐 멈춤</span><span><kbd>F1</kbd> 도움말</span></div>
+    <div class="keys"><span><kbd>Space</kbd> 낱말 확인</span><span><kbd>Enter</kbd> 문장 끝</span><span><kbd>F2</kbd> 지금 부분 다시 듣기</span><span><kbd>Shift</kbd>+<kbd>F2</kbd> 문장 전체</span><span><kbd>F3</kbd> 받아쓰기식 (띄어쓰기·부호)</span><span><kbd>F4</kbd> 지금 낱말 글자 하나씩</span><span><kbd>Esc</kbd>·<kbd>~</kbd> 잠깐 멈춤</span><span><kbd>F1</kbd> 도움말</span></div>
   </section>
 
   <!-- 결과 -->
@@ -174,52 +175,16 @@ th{color:var(--text-muted);font-weight:600}
     <div class="target big" id="d-target" aria-hidden="true"></div>
     <input class="typing" id="d-input" type="text" autocomplete="off" spellcheck="false" lang="ko" aria-label="기초 연습">
     <div class="fb" id="d-fb" aria-hidden="true"></div>
-    <div class="keys"><span><kbd>F2</kbd> 다시 듣기</span><span><kbd>F3</kbd> 손가락 위치</span><span><kbd>Enter</kbd> 확인(글자·낱말)</span><span><kbd>Esc</kbd> 멈춤</span></div>
+    <div class="keys"><span><kbd>F2</kbd> 다시 듣기</span><span><kbd>F3</kbd> 손가락 위치</span><span><kbd>Enter</kbd> 확인(글자·낱말)</span><span><kbd>Esc</kbd>·<kbd>~</kbd> 멈춤</span></div>
   </section>
 
   <!-- 설정 -->
   <section class="screen card" id="scr-settings" data-title="설정" hidden>
     <h1 class="pg" tabindex="-1">설정</h1>
-    <p class="sub">바꾸면 바로 저장돼요. 이 PC에만 저장돼요.</p>
-    <fieldset><legend>음성 안내 방식</legend><div class="inline">
-      <label><input type="radio" name="mode" value="nvda"> 화면낭독기(NVDA)로 쓰기</label>
-      <label><input type="radio" name="mode" value="self"> 페이지가 모두 읽기</label>
-    </div></fieldset>
-    <fieldset><legend>읽기</legend><div class="inline">
-      <label>읽기 속도 <select id="set-rate">
-        <option value="0.7">아주 느림</option><option value="0.85">느림</option><option value="1">보통</option><option value="1.2">빠름</option><option value="1.4">아주 빠름</option>
-      </select></label>
-      <label>음성 <select id="set-voice"></select></label>
-      <label><input type="checkbox" id="set-sfx"> 효과음</label>
-      <button id="btn-voice-test">음성 들어 보기</button>
-    </div>
-    <div class="inline" style="margin-top:.6rem">
-      <label>새 문장 읽기 <select id="set-read"><option value="natural">자연스럽게만</option><option value="both">자연스럽게 + 받아쓰기식</option></select></label>
-      <label>띄어쓰기 소리 <select id="set-space"><option value="tok">낮은 톡</option><option value="pop">물방울 뽁</option><option value="wood">작은 나무 소리</option></select></label>
-      <button id="btn-space-test">받아쓰기식 들어 보기</button>
-    </div>
-    <p class="muted" style="margin:.5rem 0 0">음성을 ‘자동’으로 두면 이 브라우저에서 가장 좋은 한국어 음성을 골라요 (엣지 자연 음성 → Google 한국의 → 윈도우 기본). 직접 고른 음성은 이 브라우저에만 기억돼요.</p>
-    </fieldset>
-    <fieldset><legend>연습</legend><div class="inline">
-      <label>기본 분량 <select id="set-amt-type"><option value="para">문단 수</option><option value="chars">글자 수</option><option value="all">끝까지</option></select></label>
-      <label>숫자 <input type="number" id="set-amt-num" min="1"></label>
-      <label>확인 단위 <select id="set-unit"><option value="word">낱말마다 (스페이스)</option><option value="sentence">문장마다 (엔터)</option></select></label>
-      <label>띄어쓰기 <select id="set-spacing"><option value="ignore">무시</option><option value="learn-end">학습: 끝나고 모아서 알려 주기</option><option value="learn-sentence">학습: 문장마다 알려 주기</option></select></label>
-      <label>끊어 읽기 <select id="set-chunk"><option value="0">끊지 않음</option><option value="1">1낱말씩</option><option value="2">2낱말씩</option><option value="3">3낱말씩</option><option value="4">4낱말씩</option></select></label>
-      <label><input type="checkbox" id="set-whole"> 새 문장은 전체를 먼저 한 번 듣기</label>
-      <label><input type="checkbox" id="set-okblip"> 맞을 때 작은 소리</label>
-      <label>문장마다 확인할 때 틀리면 다시 쓰기 <select id="set-retries"><option value="0">안 함</option><option value="1">한 번</option><option value="2">두 번</option></select></label>
-      <label><input type="checkbox" id="set-punct"> 문장부호도 검사</label>
-      <label>쉬는 시간 안내 <select id="set-break"><option value="0">끄기</option><option value="10">10분마다</option><option value="15">15분마다</option><option value="20">20분마다</option><option value="30">30분마다</option></select></label>
-    </div></fieldset>
-    <fieldset disabled><legend>연속 따라쓰기 (준비 중)</legend><div class="inline">
-      <label>속도 <select><option>느림</option></select></label>
-      <label><input type="checkbox" checked> 뒤처지면 기다리기</label>
-    </div></fieldset>
-    <fieldset><legend>기록</legend>
-      <button id="btn-clear">연습 기록 지우기</button> <span class="muted" id="clear-msg"></span>
-    </fieldset>
-    <div class="btns"><button data-back>처음 화면으로</button></div>
+    <p class="sub">↑/↓로 항목을 고르고, ←/→로 바꿔요. 바꾸면 바로 저장돼요 (이 기기의 이 브라우저에만).</p>
+    <ul role="listbox" id="lb-settings" aria-label="설정 항목. 위아래로 고르고 좌우로 바꿔요"></ul>
+    <p class="muted" style="margin:.8rem 0 0">음성을 ‘자동’으로 두면 이 브라우저에서 가장 좋은 한국어 음성을 골라요 (엣지 자연 음성 → Google 한국의 → 윈도우 기본).</p>
+    <div class="keys"><span><kbd>↑</kbd><kbd>↓</kbd> 항목 고르기</span><span><kbd>←</kbd><kbd>→</kbd> 바꾸기</span><span><kbd>Enter</kbd> 버튼 실행</span><span><kbd>Esc</kbd>·<kbd>~</kbd>·<kbd>Backspace</kbd> 뒤로</span></div>
   </section>
 
   <!-- 내 글 -->
@@ -247,7 +212,7 @@ th{color:var(--text-muted);font-weight:600}
   <section class="screen card" id="scr-help" data-title="도움말" hidden>
     <h1 class="pg" tabindex="-1">도움말</h1>
     <h2>어디서나</h2>
-    <ul><li>F1: 지금 화면 도움말 듣기</li><li>Esc: 뒤로 또는 잠깐 멈춤</li><li>위아래 화살표: 메뉴 이동, Enter: 선택</li><li>이야기 고르기: ←/→ 주제 바꾸기, ↑/↓ 이야기 고르기</li></ul>
+    <ul><li>F1: 지금 화면 도움말 듣기</li><li>Esc 또는 ~ 키(Esc 아래): 뒤로 또는 잠깐 멈춤. 폰에서는 ~ 키를 써요.</li><li>Backspace: 메뉴에서는 뒤로, 입력칸에서는 글자 지우기</li><li>설정: ↑/↓로 항목 고르기, ←/→로 바꾸기</li><li>위아래 화살표: 메뉴 이동, Enter: 선택</li><li>이야기 고르기: ←/→ 주제 바꾸기, ↑/↓ 이야기 고르기</li></ul>
     <h2>따라쓰기</h2>
     <ul><li>낱말을 쓰고 Space를 누르면 확인해요. 틀리면 그 낱말을 지워 주니 다시 써요. 문장을 다 쓰면 Enter를 눌러요.</li><li>띄어쓰기는 기본으로 보지 않아요. 설정에서 ‘학습’으로 바꾸면 나중에 모아서 알려 줘요.</li><li>F2: 지금 쓸 부분(끊어 읽기 묶음) 다시 듣기, Shift+F2: 문장 전체 듣기 (문장부호 이름까지)</li><li>끊어 읽기: 설정에서 2낱말씩처럼 정하면, 한 묶음을 다 쓸 때마다 다음 묶음을 읽어 줘요.</li><li>F3: 받아쓰기식으로 듣기 (낱말마다 띄어쓰기 소리)</li><li>F4: 지금 쓸 낱말을 글자 하나씩 듣기</li><li>영어가 들어가면 쓰던 낱말을 지우고, 한/영 키를 누른 뒤 그 낱말부터 다시 쓰라고 알려 줘요.</li></ul>
     <h2>NVDA를 쓸 때</h2>
@@ -765,54 +730,80 @@ th{color:var(--text-muted);font-weight:600}
   /* ------------------------------ 음성 ------------------------------ */
   var synth = window.speechSynthesis || null;
   var voices = [];
+  var voicesReady = !synth;
+  var deferredSpeak = [];
+  function markVoicesReady() {
+    if (voicesReady) return;
+    voicesReady = true;
+    var list = deferredSpeak; deferredSpeak = [];
+    list.forEach(function (a) { speak(a[0], a[1]); });
+  }
   function loadVoices() {
     if (!synth) return;
-    voices = synth.getVoices().filter(function (v) { return C.voiceScore(v) >= 0; })
+    var all = synth.getVoices();
+    voices = all.filter(function (v) { return C.voiceScore(v) >= 0; })
       .sort(function (a, b) { return C.voiceScore(b) - C.voiceScore(a); });
-    var sel = document.getElementById('set-voice');
-    sel.innerHTML = '';
-    var best = C.bestVoice(voices);
-    var auto = document.createElement('option');
-    auto.value = '';
-    auto.textContent = best ? '자동 (지금: ' + best.name + ')' : '자동 (기본 음성)';
-    sel.appendChild(auto);
-    voices.forEach(function (v) {
-      var o = document.createElement('option'); o.value = v.name; o.textContent = v.name; sel.appendChild(o);
-    });
-    // 직접 고른 음성이 이 브라우저에 없으면 자동으로 돌아가요
-    sel.value = S.voice && voices.some(function (v) { return v.name === S.voice; }) ? S.voice : '';
+    if (all.length) markVoicesReady();
+    if (current === 'settings' && typeof refreshSettings === 'function') refreshSettings();
   }
-  if (synth) { loadVoices(); synth.onvoiceschanged = loadVoices; }
+  if (synth) {
+    loadVoices();
+    synth.onvoiceschanged = loadVoices;
+    setTimeout(markVoicesReady, 1000);   // 음성 목록이 늦어도 1초 뒤에는 읽기 시작
+  }
   // 설정에서 고른 음성 → 없으면 이 브라우저에서 가장 좋은 한국어 음성 (엣지 자연 음성 > Google 한국의 > 윈도우 기본)
   function pickVoice() {
     return (S.voice && voices.filter(function (v) { return v.name === S.voice; })[0]) || C.bestVoice(voices);
   }
   var speakToken = 0;
-  // 차례로 읽기. parts에는 글(문자열)이나 { say, after, slow } / { wait } / { space } 를 넣어요.
-  // interrupt가 true(기본)면 읽던 것을 멈추고 새로 읽어요.
+  var speakQueue = [], speakRunning = false;
+  // 읽기는 모두 하나의 순서로만 해요 (두 목소리가 겹치지 않게).
+  // parts에는 글(문자열)이나 { say, after, slow } / { wait } / { space } 를 넣어요.
+  // interrupt가 true(기본)면 읽던 것을 멈추고 새로 읽고, false면 지금 읽는 것 뒤에 이어 읽어요.
   function speak(parts, opts) {
     opts = opts || {};
     if (!Array.isArray(parts)) parts = [parts];
     parts = parts.map(function (p) { return typeof p === 'object' && p ? p : { say: p }; })
       .filter(function (p) { return p.wait || p.space || (p.say && String(p.say).trim()); });
     if (!synth) { if (opts.onend) setTimeout(opts.onend, 0); return; }
-    if (opts.interrupt !== false) synth.cancel();
-    var token = ++speakToken;
+    if (!voicesReady) {
+      // 음성 목록을 받기 전이면 잠깐 기다렸다가 읽어요 (처음부터 같은 목소리로)
+      if (opts.interrupt !== false) deferredSpeak = [];
+      deferredSpeak.push([parts, opts]);
+      return;
+    }
+    if (opts.interrupt !== false) { speakToken++; synth.cancel(); speakQueue = []; speakRunning = false; }
+    var items = parts.map(function (p) {
+      return Object.assign({}, p, { _rate: opts.rate, _slow: opts.slow || p.slow, _gap: opts.gap });
+    });
+    if (items.length) items[items.length - 1]._onend = opts.onend;
+    else if (opts.onend) setTimeout(opts.onend, 0);
+    speakQueue = speakQueue.concat(items);
+    if (!speakRunning) runSpeakQueue();
+  }
+  function runSpeakQueue() {
+    speakRunning = true;
     setSpeaking(true);
-    var i = 0;
+    var token = speakToken;
+    function finish(s, after) {
+      if (token !== speakToken) return;
+      if (s._onend) s._onend();
+      if (token !== speakToken) return;
+      setTimeout(next, after);
+    }
     function next() {
       if (token !== speakToken) return;
-      if (i >= parts.length) { setSpeaking(false); if (opts.onend) opts.onend(); return; }
-      var s = parts[i++];
-      if (s.wait) { setTimeout(next, s.wait); return; }
-      if (s.space) { setTimeout(function () { if (token !== speakToken) return; spaceSound(); setTimeout(next, 200); }, 80); return; }
+      var s = speakQueue.shift();
+      if (!s) { speakRunning = false; setSpeaking(false); return; }
+      if (s.wait) { setTimeout(function () { finish(s, 0); }, s.wait); return; }
+      if (s.space) { setTimeout(function () { if (token !== speakToken) return; spaceSound(); setTimeout(function () { finish(s, 0); }, 200); }, 80); return; }
       var u = new SpeechSynthesisUtterance(String(s.say));
       u.lang = 'ko-KR';
       var v = pickVoice(); if (v) u.voice = v;
-      u.rate = (opts.rate || S.rate) * (opts.slow || s.slow ? 0.85 : 1);
-      var after = s.after !== undefined ? s.after : (opts.gap || 120);
-      u.onend = function () { setTimeout(next, after); };
-      u.onerror = function () { setTimeout(next, 0); };
+      u.rate = (s._rate || S.rate) * (s._slow ? 0.85 : 1);
+      var after = s.after !== undefined ? s.after : (s._gap || 120);
+      u.onend = function () { finish(s, after); };
+      u.onerror = function () { finish(s, 0); };
       synth.speak(u);
     }
     next();
@@ -821,7 +812,10 @@ th{color:var(--text-muted);font-weight:600}
   function naturalParts(sentence) { return [{ say: C.naturalText(sentence) }]; }
   // 받아쓰기식: 낱말, 띄어쓰기 소리, 문장부호 이름
   function dictationParts(sentence) { return C.dictationSteps(sentence); }
-  function stopSpeak() { speakToken++; setSpeaking(false); if (synth) synth.cancel(); }
+  function stopSpeak() { speakToken++; speakQueue = []; speakRunning = false; deferredSpeak = []; setSpeaking(false); if (synth) synth.cancel(); }
+  // 다른 페이지로 넘어갈 때는 읽던 소리를 바로 멈춰요
+  window.addEventListener('pagehide', function () { stopSpeak(); });
+  window.addEventListener('beforeunload', function () { stopSpeak(); });
   // 페이지가 말한 시간의 누적 (타수 시간에서 빼기 위해)
   var speechAccum = 0, speakingSince = null;
   function setSpeaking(on) {
@@ -973,6 +967,7 @@ th{color:var(--text-muted);font-weight:600}
     var horizontal = ul.classList.contains('row');
     var i = ul._index || 0;
     var k = e.key;
+    if ((k === 'ArrowLeft' || k === 'ArrowRight') && ul._onLR) { e.preventDefault(); ul._onLR(i, k === 'ArrowRight' ? 1 : -1); return; }
     if (k === 'ArrowDown' || (horizontal && k === 'ArrowRight')) { e.preventDefault(); setActive(ul, i + 1, true); }
     else if (k === 'ArrowUp' || (horizontal && k === 'ArrowLeft')) { e.preventDefault(); setActive(ul, i - 1, true); }
     else if (k === 'Home') { e.preventDefault(); setActive(ul, 0, true); }
@@ -985,8 +980,12 @@ th{color:var(--text-muted);font-weight:600}
     else if (k === 'Delete' && ul._onDelete) { e.preventDefault(); ul._onDelete(i); }
   });
   // 페이지가 읽는 모드: 포커스가 가는 곳을 읽어 줘요.
+  var lastPointer = 0;
+  document.addEventListener('pointerdown', function () { lastPointer = Date.now(); }, true);
+  document.addEventListener('mousedown', function () { lastPointer = Date.now(); }, true);
   document.addEventListener('focusin', function (e) {
     if (S.mode !== 'self') return;
+    if (Date.now() - lastPointer < 600) return;   // 마우스·터치로 누른 곳은 읽지 않아요 (키보드로 갈 때만 읽음)
     var el = e.target;
     if (el.id === 'p-input' || el.id === 'd-input') return;
     if (Date.now() < quietUntil) return;
@@ -1074,7 +1073,7 @@ th{color:var(--text-muted);font-weight:600}
     else { speak('NVDA로 쓰는 방식으로 정했어요. NVDA 키와 2, NVDA 키와 3을 눌러 입력 읽기를 꺼 주세요.'); goHome(); }
   }
   fillListbox(document.getElementById('lb-intro'), [
-    { title: '화면낭독기(NVDA)로 쓰기', desc: '메뉴는 NVDA가 읽고, 연습 문장은 이 페이지가 읽어요.', key: 'Enter', onPick: function () { setMode('nvda'); } },
+    { title: '화면낭독기(NVDA·톡백)로 쓰기', desc: '메뉴는 화면낭독기가 읽고, 연습 문장은 이 페이지가 읽어요.', key: 'Enter', onPick: function () { setMode('nvda'); } },
     { title: '화면낭독기 없이 쓰기', desc: '메뉴까지 모두 이 페이지가 읽어 줘요.', key: 'Space', onPick: function () { setMode('self'); } }
   ]);
   document.addEventListener('keydown', function (e) {
@@ -1082,7 +1081,7 @@ th{color:var(--text-muted);font-weight:600}
     if (!introSpoken) {
       introSpoken = true;
       e.preventDefault(); e.stopImmediatePropagation();
-      speak(['자판연습에 오신 걸 환영해요.', '화면낭독기 없이 쓰려면 스페이스바를, NVDA로 쓰려면 엔터를 누르세요.']);
+      speak(['자판연습에 오신 걸 환영해요.', '화면낭독기 없이 쓰려면 스페이스바를, NVDA나 톡백 같은 화면낭독기로 쓰려면 엔터를 누르세요.']);
       return;
     }
     if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); e.stopImmediatePropagation(); setMode('self'); }
@@ -1302,6 +1301,7 @@ th{color:var(--text-muted);font-weight:600}
 
   pInput.addEventListener('input', function (e) {
     if (!P) return;
+    if (pInput.value.indexOf('`') >= 0) pInput.value = pInput.value.replace(/`/g, '');
     tickTyping();
     if (C.hasLatin(pInput.value) && !C.hasLatin(curSentence())) {
       // 영어가 들어오면 지금 쓰던 낱말 전체를 지워요 (앞에서 다 쓴 낱말은 남겨요). 틀린 것으로 세지 않아요.
@@ -1311,7 +1311,7 @@ th{color:var(--text-muted);font-weight:600}
       pInput.value = cut;
       var r0 = C.checkProgress(curSentence(), cut, !S.punct);
       var nw = r0.status === 'ok' && r0.next ? (C.splitPunct(r0.next.word).word || r0.next.word) : '';
-      var msg = '영어로 입력됐어요. 한/영 키를 누르고 ' + (nw ? '‘' + nw + '’부터' : '이 낱말을 처음부터') + ' 다시 써요.';
+      var msg = '영어로 입력됐어요. 한/영 키(또는 Shift와 스페이스)를 누르고 ' + (nw ? '‘' + nw + '’부터' : '이 낱말을 처음부터') + ' 다시 써요.';
       setFb('warn', '⚠ ' + msg);
       if (Date.now() - latinWarnAt > 4000) { latinWarnAt = Date.now(); speak(msg); }
       return;
@@ -1684,7 +1684,7 @@ th{color:var(--text-muted);font-weight:600}
   dInput.addEventListener('keydown', function (e) {
     if (!D) return;
     if (D.lv.type === 'key') {
-      if (/^F\d+$/.test(e.key) || e.key === 'Escape' || e.key === 'Tab') return;
+      if (/^F\d+$/.test(e.key) || e.key === 'Escape' || e.key === 'Tab' || e.code === 'Backquote') return;
       if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'HangulMode' || e.key === 'Process' && !C.KEY_INFO[e.code]) return;
       e.preventDefault();
       var got = C.jamoFromKey(e.code, e.shiftKey);
@@ -1705,7 +1705,7 @@ th{color:var(--text-muted);font-weight:600}
     else if (D && C.hasLatin(dInput.value)) {
       // 글자·낱말 단계: 영어가 들어오면 입력칸을 비우고 다시 쓰게 해요 (틀린 것으로 세지 않아요)
       dInput.value = '';
-      var dm = '영어로 입력됐어요. 한/영 키를 누르고 처음부터 다시 써요.';
+      var dm = '영어로 입력됐어요. 한/영 키(또는 Shift와 스페이스)를 누르고 처음부터 다시 써요.';
       dSetFb('warn', '⚠ ' + dm);
       if (Date.now() - latinWarnAt > 4000) { latinWarnAt = Date.now(); speak([dm, itemSay(D.list[D.i])]); }
     }
@@ -1760,54 +1760,96 @@ th{color:var(--text-muted);font-weight:600}
   }
 
   /* ------------------------------ 설정 ------------------------------ */
-  function openSettings() {
-    Array.prototype.forEach.call(document.querySelectorAll('input[name=mode]'), function (r) { r.checked = r.value === S.mode; });
-    document.getElementById('set-rate').value = String(S.rate);
-    document.getElementById('set-sfx').checked = S.sfx;
-    document.getElementById('set-read').value = S.readMode;
-    document.getElementById('set-space').value = S.spaceSound;
-    document.getElementById('set-amt-type').value = S.amtType;
-    document.getElementById('set-amt-num').value = S.amtType === 'chars' ? S.amtChars : S.amtPara;
-    document.getElementById('set-retries').value = String(S.retries);
-    document.getElementById('set-unit').value = S.checkUnit;
-    document.getElementById('set-spacing').value = S.spacing;
-    document.getElementById('set-chunk').value = String(S.chunk);
-    document.getElementById('set-whole').checked = S.wholeFirst;
-    document.getElementById('set-okblip').checked = S.okBlip;
-    document.getElementById('set-punct').checked = S.punct;
-    document.getElementById('set-break').value = String(S.breakMin);
-    loadVoices();
-    show('settings', { focus: document.querySelector('input[name=mode]:checked') || document.querySelector('input[name=mode]') });
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('input[name=mode]'), function (r) {
-    r.addEventListener('change', function () { S.mode = r.value; save(); });
-  });
-  function bindSet(id, fn) { document.getElementById(id).addEventListener('change', function (e) { fn(e.target); save(); }); }
-  bindSet('set-rate', function (el) { S.rate = parseFloat(el.value) || 1; });
-  bindSet('set-voice', function (el) { S.voice = el.value; });
-  bindSet('set-sfx', function (el) { S.sfx = el.checked; });
-  bindSet('set-read', function (el) { S.readMode = el.value; });
-  bindSet('set-space', function (el) { S.spaceSound = el.value; spaceSound(); });
-  bindSet('set-amt-type', function (el) { S.amtType = el.value; document.getElementById('set-amt-num').value = S.amtType === 'chars' ? S.amtChars : S.amtPara; });
-  bindSet('set-amt-num', function (el) { var v = Math.max(1, parseInt(el.value, 10) || 1); if (S.amtType === 'chars') S.amtChars = Math.max(50, v); else S.amtPara = v; });
-  bindSet('set-retries', function (el) { S.retries = parseInt(el.value, 10) || 0; });
-  bindSet('set-unit', function (el) { S.checkUnit = el.value; });
-  bindSet('set-spacing', function (el) { S.spacing = el.value; });
-  bindSet('set-chunk', function (el) { S.chunk = parseInt(el.value, 10) || 0; });
-  bindSet('set-whole', function (el) { S.wholeFirst = el.checked; });
-  bindSet('set-okblip', function (el) { S.okBlip = el.checked; });
-  bindSet('set-punct', function (el) { S.punct = el.checked; });
-  bindSet('set-break', function (el) { S.breakMin = parseInt(el.value, 10) || 0; });
+  // ↑/↓ 항목 고르기, ←/→ 값 바꾸기, Enter 버튼 실행 (이야기 고르기 화면과 같은 규칙)
+  var lbSet = document.getElementById('lb-settings');
   var SAMPLE_SENTENCE = '토끼는 나무 그늘에 누워, 잠깐 쉬기로 했어요.';
-  document.getElementById('btn-voice-test').addEventListener('click', function () { speak(['이 음성과 속도로 읽어 줄게요.'].concat(naturalParts(SAMPLE_SENTENCE))); });
-  document.getElementById('btn-space-test').addEventListener('click', function () { speak(dictationParts(SAMPLE_SENTENCE)); });
   var clearArmed = false;
-  document.getElementById('btn-clear').addEventListener('click', function () {
-    var msg = document.getElementById('clear-msg');
-    if (!clearArmed) { clearArmed = true; msg.textContent = '한 번 더 누르면 지워져요.'; announce('한 번 더 누르면 연습 기록이 지워져요.'); setTimeout(function () { clearArmed = false; msg.textContent = ''; }, 6000); return; }
-    clearArmed = false; store.records = []; store.resume = {}; store.done = {}; store.last = null; save();
-    msg.textContent = '지웠어요.'; announce('연습 기록을 지웠어요.');
-  });
+  function onOff(key) { return { opts: function () { return [[true, '켜짐'], [false, '꺼짐']]; }, get: function () { return !!S[key]; }, set: function (v) { S[key] = v; } }; }
+  function choice(key, list, num) {
+    return { opts: function () { return list; }, get: function () { return S[key]; }, set: function (v) { S[key] = num ? Number(v) : v; } };
+  }
+  function settingDefs() {
+    var best = C.bestVoice(voices);
+    return [
+      Object.assign({ name: '음성 안내 방식' }, choice('mode', [['nvda', '화면낭독기(NVDA·톡백)로 쓰기'], ['self', '페이지가 모두 읽기']])),
+      Object.assign({ name: '읽기 속도' }, choice('rate', [[0.7, '아주 느림'], [0.85, '느림'], [1, '보통'], [1.2, '빠름'], [1.4, '아주 빠름']], true)),
+      { name: '음성', opts: function () {
+          return [['', best ? '자동 (지금: ' + best.name + ')' : '자동']].concat(voices.map(function (v) { return [v.name, v.name]; }));
+        }, get: function () { return S.voice && voices.some(function (v) { return v.name === S.voice; }) ? S.voice : ''; }, set: function (v) { S.voice = v; } },
+      Object.assign({ name: '새 문장 읽기' }, choice('readMode', [['natural', '자연스럽게만'], ['both', '자연스럽게 + 받아쓰기식']])),
+      Object.assign({ name: '끊어 읽기' }, choice('chunk', [[0, '끊지 않음'], [1, '1낱말씩'], [2, '2낱말씩'], [3, '3낱말씩'], [4, '4낱말씩']], true)),
+      Object.assign({ name: '새 문장은 전체를 먼저 듣기' }, onOff('wholeFirst')),
+      Object.assign({ name: '띄어쓰기 소리', after: function () { spaceSound(); } }, choice('spaceSound', [['tok', '낮은 톡'], ['pop', '물방울 뽁'], ['wood', '작은 나무 소리']])),
+      Object.assign({ name: '확인 단위' }, choice('checkUnit', [['word', '낱말마다 (스페이스)'], ['sentence', '문장마다 (엔터)']])),
+      Object.assign({ name: '띄어쓰기 확인' }, choice('spacing', [['ignore', '무시'], ['learn-end', '학습: 끝나고 모아서 알려 주기'], ['learn-sentence', '학습: 문장마다 알려 주기']])),
+      Object.assign({ name: '문장부호도 검사' }, onOff('punct')),
+      Object.assign({ name: '맞을 때 작은 소리' }, onOff('okBlip')),
+      Object.assign({ name: '효과음' }, onOff('sfx')),
+      Object.assign({ name: '문장마다 확인할 때 틀리면 다시 쓰기' }, choice('retries', [[0, '안 함'], [1, '한 번'], [2, '두 번']], true)),
+      Object.assign({ name: '기본 분량 방식', rebuild: true }, choice('amtType', [['para', '문단 수'], ['chars', '글자 수'], ['all', '끝까지']])),
+      { name: '기본 분량', opts: function () {
+          if (S.amtType === 'chars') return [100, 200, 300, 500, 800].map(function (n) { return [n, n + '자']; });
+          if (S.amtType === 'all') return [['all', '끝까지 (숫자 없음)']];
+          return [1, 2, 3, 4, 5, 6].map(function (n) { return [n, n + '문단']; });
+        }, get: function () { return S.amtType === 'chars' ? S.amtChars : S.amtType === 'all' ? 'all' : S.amtPara; },
+        set: function (v) { if (S.amtType === 'chars') S.amtChars = Number(v); else if (S.amtType === 'para') S.amtPara = Number(v); } },
+      Object.assign({ name: '쉬는 시간 안내' }, choice('breakMin', [[0, '끄기'], [10, '10분마다'], [15, '15분마다'], [20, '20분마다'], [30, '30분마다']], true)),
+      { name: '음성 들어 보기', button: true, run: function () { speak(['이 음성과 속도로 읽어 줄게요.'].concat(naturalParts(SAMPLE_SENTENCE))); } },
+      { name: '받아쓰기식 들어 보기', button: true, run: function () { speak(dictationParts(SAMPLE_SENTENCE)); } },
+      { name: '연습 기록 지우기', button: true, run: function () {
+          if (!clearArmed) { clearArmed = true; announce('한 번 더 엔터를 누르면 연습 기록이 지워져요.'); setTimeout(function () { clearArmed = false; }, 6000); return; }
+          clearArmed = false; store.records = []; store.resume = {}; store.done = {}; store.last = null; save();
+          announce('연습 기록을 지웠어요.');
+        } },
+      { name: '처음 화면으로', button: true, run: function () { goHome(); } }
+    ];
+  }
+  function curIndexOf(d) {
+    var o = d.opts(), v = String(d.get());
+    for (var i = 0; i < o.length; i++) if (String(o[i][0]) === v) return i;
+    return 0;
+  }
+  function valueLabel(d) { var o = d.opts(); return o.length ? o[curIndexOf(d)][1] : ''; }
+  function rowSay(d) { return d.button ? d.name + ' 버튼. 엔터로 실행해요.' : d.name + ', ' + valueLabel(d) + '. 좌우로 바꿔요.'; }
+  var setDefs = [];
+  function buildSettings(index, focus) {
+    setDefs = settingDefs();
+    fillListbox(lbSet, setDefs.map(function (d) {
+      return { title: d.name, key: d.button ? 'Enter' : valueLabel(d), say: rowSay(d),
+        onPick: function () { if (d.button) d.run(); else changeSetting(setDefs.indexOf(d), 1); } };
+    }), { index: index || 0 });
+    Array.prototype.forEach.call(lbSet.children, function (li, i) { li.setAttribute('aria-label', rowSay(setDefs[i])); });
+    if (focus) { var f = lbSet.querySelector('[tabindex="0"]'); if (f) f.focus(); }
+  }
+  function refreshSettings() {
+    var hadFocus = lbSet.contains(document.activeElement);
+    buildSettings(lbSet._index || 0, hadFocus);
+  }
+  function changeSetting(i, dir) {
+    var d = setDefs[i];
+    if (!d) return;
+    if (d.button) { var msg = '엔터를 누르면 실행해요.'; if (S.mode === 'self') speak(msg); else announce(msg); return; }
+    var o = d.opts();
+    if (o.length < 2) { var m1 = valueLabel(d) + '. 바꿀 수 있는 값이 없어요.'; if (S.mode === 'self') speak(m1); else announce(m1); return; }
+    var n = (curIndexOf(d) + dir + o.length) % o.length;
+    d.set(o[n][0]);
+    save();
+    if (d.rebuild) buildSettings(i, true);
+    else {
+      var li = lbSet.children[i];
+      li.querySelector('.o-k').textContent = valueLabel(d);
+      li.dataset.say = rowSay(d);
+      li.setAttribute('aria-label', rowSay(d));
+    }
+    var label = o[n][1];
+    if (S.mode === 'self') speak(label); else announce(label);
+    if (d.after) d.after();
+  }
+  lbSet._onLR = function (i, dir) { changeSetting(i, dir); };
+  function openSettings() {
+    buildSettings(0, false);
+    show('settings', { focus: lbSet.querySelector('[tabindex="0"]') });
+  }
 
   /* ------------------------------ 내 글 ------------------------------ */
   var lbMy = document.getElementById('lb-mytext');
@@ -1856,6 +1898,26 @@ th{color:var(--text-muted);font-weight:600}
     else announce(sum);
   }
 
+  /* ------------------------------ 뒤로 가기 ------------------------------ */
+  // Esc, ~ 키, Backspace(입력칸 밖), 브라우저·폰의 뒤로 가기가 모두 여기로 와요.
+  // 연습 중이면 멈춤 창, 다른 화면이면 처음 화면으로. 처음 화면에서만 실제로 페이지를 떠나요.
+  function goBack() {
+    if (!pauseEl.hidden) { if (pauseReturn) closePause(); return true; }
+    if (current === 'practice' && P) { openPause('잠깐 멈췄어요', '「' + P.story.title + '」 ' + (P.p + 1) + '문단 ' + (P.s + 1) + '번째 문장이에요.'); return true; }
+    if (current === 'drill' && D) { openPause('잠깐 멈췄어요', D.lv.title + ' ' + (D.i + 1) + '번째 문제예요.'); return true; }
+    if (['pick', 'settings', 'mytext', 'records', 'help', 'basic', 'result'].indexOf(current) >= 0) { goHome(); return true; }
+    return false;
+  }
+  // 브라우저 뒤로 가기(폰의 Delete 키, 뒤로 버튼 포함)를 페이지 안에서 처리해요
+  try {
+    history.replaceState({ typingBase: true }, '');
+    history.pushState({ typingGuard: true }, '');
+    window.addEventListener('popstate', function () {
+      if (goBack()) { history.pushState({ typingGuard: true }, ''); }
+      else { stopSpeak(); history.back(); }
+    });
+  } catch (e) { }
+
   /* ------------------------------ 공통 키 ------------------------------ */
   Array.prototype.forEach.call(document.querySelectorAll('[data-back]'), function (b) {
     b.addEventListener('click', function () { if (current === 'pick' || current === 'settings' || current === 'mytext' || current === 'records' || current === 'help') goHome(); });
@@ -1863,11 +1925,11 @@ th{color:var(--text-muted);font-weight:600}
   var HELP = {
     home: '위아래 화살표로 메뉴를 고르고 엔터를 누르세요. 숫자 1부터 8로 바로 갈 수도 있어요.',
     pick: '왼쪽 오른쪽 화살표로 주제를 바꾸고, 위아래 화살표로 이야기를 골라요. 엔터를 누르면 시작해요. 탭 키로 분량을 바꿀 수 있어요. 이스케이프는 뒤로 가기예요.',
-    practice: '낱말을 쓰고 스페이스를 누르면 확인해요. 문장을 다 쓰면 엔터를 누르세요. 에프 2는 지금 부분 다시 듣기, 쉬프트 에프 2는 문장 전체, 에프 3은 띄어쓰기 소리가 들어간 받아쓰기식, 에프 4는 지금 쓸 낱말을 글자 하나씩 들려줘요. 이스케이프는 잠깐 멈춤이에요.',
+    practice: '낱말을 쓰고 스페이스를 누르면 확인해요. 문장을 다 쓰면 엔터를 누르세요. 에프 2는 지금 부분 다시 듣기, 쉬프트 에프 2는 문장 전체, 에프 3은 띄어쓰기 소리가 들어간 받아쓰기식, 에프 4는 지금 쓸 낱말을 글자 하나씩 들려줘요. 이스케이프나 물결표 키는 잠깐 멈춤이에요.',
     result: '위아래 화살표로 다음에 할 일을 고르고 엔터를 누르세요.',
     basic: '위아래 화살표로 단계를 고르고 엔터를 누르세요.',
-    drill: '들리는 자모나 글자를 쳐요. 에프 2는 다시 듣기, 에프 3은 손가락 위치예요. 이스케이프는 멈춤이에요.',
-    settings: '탭 키로 항목을 옮겨 다니며 바꿔요. 바꾸면 바로 저장돼요.',
+    drill: '들리는 자모나 글자를 쳐요. 에프 2는 다시 듣기, 에프 3은 손가락 위치예요. 이스케이프나 물결표 키는 멈춤이에요.',
+    settings: '위아래 화살표로 항목을 고르고, 왼쪽 오른쪽 화살표로 바꿔요. 버튼은 엔터로 실행해요. 바꾸면 바로 저장돼요.',
     mytext: '제목과 내용을 쓰고 저장 버튼을 누르세요. 저장한 글 목록에서 델리트 키를 누르면 지워져요.',
     records: '최근 연습 기록이에요.',
     help: '단축키 안내 화면이에요.',
@@ -1875,10 +1937,11 @@ th{color:var(--text-muted);font-weight:600}
   };
   document.addEventListener('keydown', function (e) {
     if (e.key === 'F1') { e.preventDefault(); speak(HELP[current] || ''); return; }
-    if (!pauseEl.hidden) {
-      if (e.key === 'Escape') { e.preventDefault(); if (pauseReturn) closePause(); }
-      return;
-    }
+    var isBackKey = e.key === 'Escape' || e.code === 'Backquote' ||
+      (e.key === 'Backspace' && !/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName));
+    if (e.key === 'Delete' && !/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) && !(e.target.closest && e.target.closest('#lb-mytext'))) e.preventDefault();
+    if (isBackKey && !(e.code === 'Backquote' && e.target.tagName === 'TEXTAREA')) { e.preventDefault(); goBack(); return; }
+    if (!pauseEl.hidden) return;
     if (current === 'practice' && P) {
       if (e.key === 'F2') { e.preventDefault(); sayCurrent(false, e.shiftKey ? 'whole' : 'natural'); return; }
       if (e.key === 'F3') { e.preventDefault(); sayCurrent(false, 'dictation'); return; }
@@ -1891,19 +1954,17 @@ th{color:var(--text-muted);font-weight:600}
         speak(C.spellSteps(w));
         return;
       }
-      if (e.key === 'Escape') { e.preventDefault(); openPause('잠깐 멈췄어요', '「' + P.story.title + '」 ' + (P.p + 1) + '문단 ' + (P.s + 1) + '번째 문장이에요.'); return; }
+
     }
     if (current === 'drill' && D) {
       if (e.key === 'F2') { e.preventDefault(); askDrill(); return; }
       if (e.key === 'F3') { e.preventDefault(); var x = D.list[D.i]; speak(D.lv.type === 'key' ? C.keyHint(x) : C.spellSteps(x)); return; }
-      if (e.key === 'Escape') { e.preventDefault(); openPause('잠깐 멈췄어요', D.lv.title + ' ' + (D.i + 1) + '번째 문제예요.'); return; }
-    }
-    if (e.key === 'Escape') {
-      if (current === 'pick' || current === 'settings' || current === 'mytext' || current === 'records' || current === 'help' || current === 'basic' || current === 'result') {
-        e.preventDefault(); goHome();
-      }
+
     }
   });
+
+  var selfLink = document.querySelector('nav.jump a[aria-current=page]');
+  if (selfLink) selfLink.addEventListener('click', function (e) { e.preventDefault(); goHome(); });
 
   /* ------------------------------ 시작 ------------------------------ */
   if (!S.mode) show('intro', { silent: true });
